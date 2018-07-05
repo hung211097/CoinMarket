@@ -140,26 +140,27 @@ th, .no-wrap {
   border-right: 1px solid #e1e5ea;
 }
 
-
 .margin-bottom--lv2 {
-
-    margin-bottom: 12px;
-
+  margin-bottom: 12px;
 }
 
 .h3 {
-
-    font-size: 21px;
-    line-height: 1.14286em;
-    margin-top: 0;
-    margin-bottom: 1.14286em;
-
+  font-size: 21px;
+  line-height: 1.14286em;
+  margin-top: 0;
+  margin-bottom: 1.14286em;
 }
 
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  font-weight: 600;
+  color: #17181b;
+  outline: 0;
+}
 
-    font-weight: 600;
-    color: #17181b;
-    outline: 0;
+.price, .volume, .circulating-supply{
+  color: #1070E9;
+}
 
+.percent-change{
+  color: #E44040;
 }
