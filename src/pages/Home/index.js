@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
-import './App.css';
-import _ from '../../node_modules/lodash/lodash';
-import {number} from '../constant/config';
+import ReactDOM from 'react-dom';
+import './index.css';
+import _ from 'lodash/lodash.min';
+import Header from '../../component/Layout/header'
+import Footer from '../../component/Layout/footer';
+import Currency from '../../component/Button/currencyButton';
+import Paging from '../../component/Button/pagingButton';
 
-const Title = () => {
+const Content = () => {
   return(
     <div className="container">
-      <h2 className="title">Top {number.NUMBER_ITEMS} Cryptocurrencies by Market Capitalization</h2>
-      <hr/><br/><br/>
+      <Header />
+
       <div className="row bottom-margin-1x">
         <div className="col-xs-12">
           <div className="row">
             <div className="col-xs-3 col-md-2 col-md-push-5">
-              <div id="currency-switch" className="btn-group">  {/*Currency Component--------------------------------------------*/}
-                <button type="button" id="currency-switch-button" className="btn btn-default dropdown-toggle" data-toggle="dropdown">USD</button>
-              </div>
+              <Currency />
             </div>
 
             <div className="col-xs-9 col-md-5 col-md-push-5 text-right">
-                <ul className="pagination top-paginator">      {/*Paging Button Component--------------------------------------------*/}
-                  <li><a href="">Next 10→</a></li>
-                  <li><a href="">View All</a></li>
-                </ul>
+              <Paging />
             </div>
 
             <div class="col-md-5 col-md-pull-7">
@@ -293,17 +292,8 @@ const Title = () => {
             </div>
           </div>
 
-          <div className="footer">
-            <div className="row text-center h3 margin-bottom--lv2">
-              <strong>Total Market Cap: <span id="total-marketcap" className="market-cap">$267,653,949,612</span></strong>
-            </div>
-            <div className="pull-right">
-              <ul className="pagination bottom-paginator">
-                <li><a href="">Next 10→</a></li>      {/*Paging Button Component--------------------------------------------*/}
-                <li><a href="">View All</a></li>
-              </ul>
-            </div>
-          </div>
+          <Footer/>
+
         </div>
       </div>
     </div>
@@ -313,7 +303,7 @@ const Title = () => {
 class App extends Component {
   render() {
     return (
-      <Title />
+      <Content />
     );
   }
 }
