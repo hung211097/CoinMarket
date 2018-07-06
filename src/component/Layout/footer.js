@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Paging from '../../component/Button/pagingButton';
 
 class footer extends React.Component {
