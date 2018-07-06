@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import Home from './pages/Home/index';
+import {Redirect} from 'react-router-dom';
 
-const CoinMarket = () => {
+const CoinMarket = (props) => {
+  let p = props.match.params.page;
+  let reg = /^\d+$/;
+  if(!p)
+    p = 1;
+  else
+    if(!reg.test(p))
+      return (<Redirect to="/1"/>);
   return(
-    <Home />
+    <Home page={p}/>
   );
 }
 
-class App extends Component {
-  render() {
-    return (
-      <CoinMarket />
-    );
-  }
+{/*const App = (props) => {
+  return (
+    <CoinMarket page={props.match.params.page}/>
+  );
 }
+*/}
 
-export default App;
+export default CoinMarket;
