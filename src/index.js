@@ -4,19 +4,26 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import Detail from './pages/Detail/index'
 
-{/*function RenderApp(req) {
-  return (<App/>);
-}*/}
-
+function RenderApp(){
+  return(
+    <Detail />
+  );
+}
 ReactDOM.render(
-  <BrowserRouter>
-    <React.Fragment>
-      <Route exact path="/" component={App}/>
-      <Route exact path="/home" component={App}/>
-      <Route exact path="/:page" component={App}/>
-      <Route exact path="/home/:page" component={App}/>
-    </React.Fragment>
-</BrowserRouter>, document.getElementById('root'));
+  // <Provider>
+    <BrowserRouter>
+      <React.Fragment>
+        {/* <Route exact path="/" component={RenderApp} />
+        <Route exact path="/home" component={RenderApp} /> */}
+        <Route path="/detail/:id/" exact component={Detail} />
+      </React.Fragment>
+    </BrowserRouter>
+  // </Provider>
+  , document.getElementById('root')
+);
 registerServiceWorker();
