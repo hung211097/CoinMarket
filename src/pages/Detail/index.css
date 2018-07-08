@@ -12,6 +12,9 @@
     font-size: 17px;
     line-height: inherit;
   }
+  img{
+      padding-right: 5px;
+  }
   h3, .h3 {
     font-size: 21px;
     line-height: 1.14286em;
