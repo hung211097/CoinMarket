@@ -3,30 +3,29 @@ import _ from 'lodash';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import List from './List';
-
+import TickerWithConvert from '../../services/tickerWithConvert'
 class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
         coin: [],
         };
-    this.getdata= this.getdata.bind(this);
   }
 
   
   componentDidMount() {
-    this.getdata();
+    TickerWithConvert(this.props.match.params.id).then(response => this.setState({coin: response.data}));
   }
 
-  componentWillMount(){
-    var i =this.props.match.params.id;
-  }
+  // componentWillMount(){
+  //   var i =this.props.match.params.id;
+  // }
 
-  getdata(){
-    fetch(`https://api.coinmarketcap.com/v2/ticker/${this.props.match.params.id}/?convert=BTC`)
-      .then(response => response.json())
-      .then(response => this.setState({coin: response.data}))
-  }
+  // getdata(){
+  //   fetch(`https://api.coinmarketcap.com/v2/ticker/${this.props.match.params.id}/?convert=BTC`)
+  //     .then(response => response.json())
+  //     .then(response => this.setState({coin: response.data}))
+  // }
 
   render(){
     const coinObj = this.state.coin;
@@ -48,6 +47,7 @@ class Content extends Component {
           <div className="col-md-3">
             <div className="details-panel-item--name">
               <h1>
+              <img  src={`https://s2.coinmarketcap.com/static/img/coins/32x32/${coinArray[0]}.png`} />
                 {coinArray[1]}
                 <span className="text-bold h3 text-gray text-large">({coinArray[2]})</span>
               </h1>
