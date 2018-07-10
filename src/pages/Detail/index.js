@@ -6,6 +6,8 @@ import List from './List';
 import TickerWithConvert from '../../services/tickerWithConvert';
 import Header from '../../component/Layout/header';
 import Footer from '../../component/Layout/footer';
+
+
 class Content extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class Content extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     console.log(prevState);
-    console.log(nextProps);
+    console.log(nextProps.match.params.id);
     if(nextProps.match.params.id != prevState.i)
     {
       return{
