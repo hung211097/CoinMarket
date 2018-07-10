@@ -7,11 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter , Route, withRouter, Link} from 'react-router-dom';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import Detail from './pages/Detail/index'
+import Details from './pages/Detail/index'
+import Header from './component/Layout/header';
+import Footer from './component/Layout/header';
+import List from './pages/Detail/List';
+import Index from './pages/Detail/index';
 
 function RenderApp(){
   return(
-    <Detail />
+    <Details />
   );
 }
 ReactDOM.render(
@@ -20,7 +24,7 @@ ReactDOM.render(
       <React.Fragment>
         {/* <Route exact path="/" component={RenderApp} />
         <Route exact path="/home" component={RenderApp} /> */}
-        <Route path="/detail/:id/" exact component={Detail}  />
+        <Route exact path="/detail/:id" component={Index} />
       </React.Fragment>
     </BrowserRouter>
   // </Provider>

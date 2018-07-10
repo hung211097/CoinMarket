@@ -9,9 +9,6 @@ class footer extends React.Component {
         <div className="row text-center h3 margin-bottom--lv2">
           <strong>Total Market Cap: <span id="total-marketcap" className="market-cap">$267,653,949,612</span></strong>
         </div>
-        <div className="pull-right">
-          <Paging />
-        </div>
       </div>
     );
   }
