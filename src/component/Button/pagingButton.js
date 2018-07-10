@@ -1,15 +1,13 @@
 import React from 'react';
-import {BrowserRouter, Link} from 'react-router-dom';
-
-class Paging extends React.Component{
+import ReactDOM from 'react-dom';
   handleClickNext(){
-    this.props.onNextPage();
-  }
 
   handleClickPrevious(){
     this.props.onPreviousPage();
   }
 
+  return(
+    <ul className="pagination top-paginator">      {/*Paging Button Component--------------------------------------------*/}
   render(){
     return(
       <BrowserRouter>
@@ -21,14 +19,11 @@ class Paging extends React.Component{
             }
             {!this.props.lastPage ?
               <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
-               : null
+               : null                            
             }
-            <li><a href="">View All</a></li>
-          </ul>
-        </React.Fragment>
-      </BrowserRouter>
-    );
-  }
+      <li><a href="">View All</a></li>
+    </ul>
+  );
 }
 
 export default Paging;

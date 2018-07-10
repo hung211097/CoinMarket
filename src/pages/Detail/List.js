@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './List.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table} from 'reactstrap';
-import {BrowserRouter , Route, Link} from 'react-router-dom';
+import {BrowserRouter , Route, withRouter, Link} from 'react-router-dom';
 import Ticker from '../../services/ticker'
 import Detail from '../Detail/index'
 
@@ -15,8 +15,8 @@ class List extends Component {
         data: {},
         }
     }
-
-
+     
+  
     componentDidMount()
     {
         Ticker().then(response => this.setState({data: response.data}));
