@@ -1,13 +1,16 @@
 <<<<<<< HEAD
+=======
+import {number} from '../constant/config';
+import Dollar from '../format/dollar';
+import Circulating from '../format/circulating';
+
+const ticker = (page) => {
+  let num = (page - 1) * number.NUMBER_ITEMS + 1;
+>>>>>>> NguyenHung
   let total_marketcap = 0;
         total_marketcap += +obj.quotes.USD.market_cap;
       myJson.total = total_marketcap;
-=======
-const ticker = () => {
-
-    return fetch(`https://api.coinmarketcap.com/v2/ticker/`)
      .then(response => response.json());
    }
  
 export default ticker;
->>>>>>> origin/thanhhang

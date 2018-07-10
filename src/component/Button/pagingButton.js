@@ -17,7 +17,10 @@ import ReactDOM from 'react-dom';
               <li><Link to={"/" + (+this.props.page - 1)} onClick={this.handleClickPrevious.bind(this)}>← Previous 10</Link></li>
               : null
             }
-            <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
+            {!this.props.lastPage ?
+              <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
+               : null                            
+            }
       <li><a href="">View All</a></li>
     </ul>
   );

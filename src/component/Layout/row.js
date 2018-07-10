@@ -60,7 +60,7 @@ class Rows extends React.Component {
       }).then(()=>{
         this.props.onTotalMarket(this.state.list.total);
       });
-    });    
+    });
   }
 
   render(){
