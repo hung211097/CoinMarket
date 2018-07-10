@@ -4,8 +4,7 @@ const tickerWithConvert = (id) => {
       return response.json();
     }).then(function(myjson){
       if (myjson){
-        myjson = Object.values(myjson.data);
-        return myjson;
+        return myjson.data;
       }
       else
         return null;

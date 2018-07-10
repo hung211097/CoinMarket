@@ -51,9 +51,9 @@ column-mobile .table {
   position: -ms-sticky;
   position: -o-sticky;
   position: sticky;
-  top: -10px;
+  top: -7px;
   background-color: #fff;
-  border-bottom: 0;
+  border-bottom: 0 !important;
 }
 
 table td[class*="col-"], table th[class*="col-"] {
@@ -78,8 +78,8 @@ table td[class*="col-"], table th[class*="col-"] {
   border-right: 1px solid #e1e5ea;
 }
 
-thead tr {
-  border-top: 1px solid #e1e5ea;
+thead tr{
+  border-top: 1px;
 }
 
 .floating-header thead tr th::after {
@@ -93,6 +93,13 @@ thead tr {
 
 .bottom-margin-1x {
   margin-bottom: 24px;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 0px solid #ddd !important;
 }
 
 .table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>td {
@@ -161,6 +168,15 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
   color: #1070E9;
 }
 
-.percent-change{
+.percent-change.rise{
+  color: #009E73;
+}
+
+.percent-change.drop{
   color: #E44040;
+}
+
+.logo-sprite {
+    line-height: 24px;
+    margin: 0 8px 4px 2px;
 }
