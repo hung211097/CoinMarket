@@ -30,19 +30,19 @@ class List extends Component {
                     <th scope="row" className = "rank">{value.rank}</th>
                     <td >
                         <img  src={`https://s2.coinmarketcap.com/static/img/coins/16x16/${value.id}.png`} />
-                        <Link onClick={Detail} className = "active nameCoin" key={key} to={`/detail/${value.id}`}>{value.name}</Link>
+                        <Link  className = "active nameCoin" key={key} to={`/detail/${value.id}`}>{value.name}</Link>
                     </td>
                     <td >
-                        <Link onClick={Detail} className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.market_cap}</Link>
+                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.market_cap}</Link>
                     </td>
                     <td >
-                        <Link onClick={Detail} className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.price}</Link>
+                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.price}</Link>
                     </td>
                     <td >
-                        <Link onClick={Detail} className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.volume_24h}</Link>
+                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.volume_24h}</Link>
                     </td>
                     <td >
-                        <Link onClick={Detail} className = "active" key={key} to={`/detail/${value.id}`}>{value.circulating_supply} {value.symbol}</Link>
+                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>{value.circulating_supply} {value.symbol}</Link>
                     </td>
                     <td className={value.quotes.USD.percent_change_24h < 0 ? "no-wrap percent-change text-right drop" : value.quotes.USD.percent_change_24h > 0 ? "no-wrap  percent-change text-right rise" : "no-wrap  percent-change text-right"}>
             {value.quotes.USD.percent_change_24h} %</td>
