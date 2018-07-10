@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Link} from 'react-router-dom';
+import Row from '../../component/Layout/row';
 
 class Paging extends React.Component{
   handleClickNext(){
