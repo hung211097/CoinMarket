@@ -28,7 +28,6 @@ const ticker = (page) => {
     }
     return null;
   })
-  })
 }
 
 export default ticker;

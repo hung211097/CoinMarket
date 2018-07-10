@@ -3,7 +3,7 @@ import './error.css';
 
 const ErrorPage = () => {
   return(
-    <div>
+    <div className="error">
       <h1>Page Not Found</h1>
       <p>Sorry, but the page you were trying to view does not exist.</p>
     </div>

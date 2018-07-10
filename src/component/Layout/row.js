@@ -72,7 +72,7 @@ class Rows extends React.Component {
             <td className="text-center sorting_1">{i + 1 + this.state.step}</td>
             <td className="no-wrap currency-name" data-sort={view.name}>
               <img className="logo-sprite" src={"https://s2.coinmarketcap.com/static/img/coins/16x16/" + view.id + ".png"} alt={view.name} width="16px" height="16px"/>
-              <Link to={`/detail/${view.id}`} className="currency-name-container link-secondary" href="javascript:;">{view.name}</Link>
+              <Link to={`/detail/${view.id}`} className="currency-name-container link-secondary">{view.name}</Link>
             </td>
             <td className="no-wrap market-cap text-right">
               {view.quotes.USD.market_cap}

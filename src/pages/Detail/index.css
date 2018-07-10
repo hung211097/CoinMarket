@@ -1,0 +1,85 @@
+.container{
+    margin-top: 20px;
+  }
+  
+  .text-bold {
+    font-weight: 600;
+  }
+  .text-gray {
+    color: rgba(39,52,64,0.5);
+  }
+  .text-large {
+    font-size: 15px;
+    line-height: inherit;
+  }
+  img{
+      padding-right: 5px;
+  }
+  h3, .h3 {
+    font-size: 21px;
+    line-height: 1.14286em;
+    margin-top: 0;
+    margin-bottom: 1.14286em;
+  }
+  
+  .details-panel-item--price{
+      margin-top: 20px;
+  }
+  
+  .currency-value{
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 42px;
+      margin-top: 0;
+      margin-bottom: 1.92em;
+  }
+  
+  .currency-code{
+      font-size: 17px;
+      line-height: inherit;
+  }
+  .percentage{
+      font-weight: 500;
+      font-size: 25px;
+      color: #009e73;
+      line-height: 1.44em;
+      margin-top: 0;
+      margin-bottom: 1.92em;
+  }
+  .price-cryto{
+      color: rgba(39,52,64,0.5);
+      font-size: 15px;
+      line-height: 1.5em;
+  }
+  .percentage-change {
+      color: #009e73;
+      font-size: 15px;
+      line-height: 1.5em;
+  }
+  
+  
+  .menu{
+      min-height: 50px;
+      background-color: #f5f7f8;
+  }
+  .menu >tr>th>h5{
+      line-height: 16px;
+      font-weight: bold;
+      font-size: 18px;
+  }
+  .value>tr>td{
+      margin-top: 10px;
+  }
+
+  .ListCoin{
+      font-weight: bold;
+      font-size: 30px;
+  }
+  
+  .percent-change.rise{
+    color: #009E73;
+  }
+  
+  .percent-change.drop{
+    color: #E44040;
+  }
