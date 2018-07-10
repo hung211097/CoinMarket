@@ -168,6 +168,15 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
   color: #1070E9;
 }
 
-.percent-change{
+.percent-change.rise{
+  color: #009E73;
+}
+
+.percent-change.drop{
   color: #E44040;
+}
+
+.logo-sprite {
+    line-height: 24px;
+    margin: 0 8px 4px 2px;
 }
