@@ -15,7 +15,7 @@ class Rows extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if(nextProps.page != prevState.page)
+    if(+nextProps.page !== +prevState.page)
     {
       return{
         list: [],

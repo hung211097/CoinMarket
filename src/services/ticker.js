@@ -26,8 +26,7 @@ const ticker = (page) => {
       myJson.total = total_marketcap;
       return myJson;
     }
-    else
-      return null;
+    return null;
   })
 }
 

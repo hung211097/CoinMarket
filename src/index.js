@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Index from './pages/Detail/index';
 
-
 ReactDOM.render(
   <BrowserRouter>
     <React.Fragment>
