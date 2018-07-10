@@ -7,8 +7,6 @@ import Paging from '../../component/Button/pagingButton';
 import Row from '../../component/Layout/row';
 import CheckExistPage from '../../services/checkExistPage';
 
-{/*import Tickers from '../../services/ticker';*/}
-
 class Content extends Component {
   constructor(props)
   {

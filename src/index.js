@@ -6,10 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-{/*function RenderApp(req) {
-  return (<App/>);
-}*/}
-
 
 ReactDOM.render(
   <BrowserRouter>

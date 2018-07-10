@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import Row from '../../component/Layout/row';
+import {BrowserRouter, Link} from 'react-router-dom';
 
 class Paging extends React.Component{
   handleClickNext(){
@@ -22,7 +21,7 @@ class Paging extends React.Component{
             }
             {!this.props.lastPage ?
               <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
-               : null                            
+               : null
             }
             <li><a href="">View All</a></li>
           </ul>

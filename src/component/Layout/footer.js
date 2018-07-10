@@ -11,7 +11,7 @@ class footer extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if(nextProps.totalMarket != prevState.total_marketcap)
+    if(+nextProps.totalMarket !== +prevState.total_marketcap)
     {
       return{
         total_marketcap: nextProps.totalMarket,
