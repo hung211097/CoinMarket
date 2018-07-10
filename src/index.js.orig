@@ -4,46 +4,44 @@ import './index.css';
 import App from './pages/Home';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import Details from './pages/Detail/index'
-import Header from './component/Layout/header';
-import Footer from './component/Layout/header';
-import List from './pages/Detail/List';
-import Index from './pages/Detail/index';
 
-<<<<<<< HEAD
+{/*function RenderApp(req) {
+  return (<App/>);
+}*/}
 
-=======
-function RenderApp(){
-  return(
-    <Details />
-  );
-}
->>>>>>> origin/thanhhang
+
 ReactDOM.render(
-  // <Provider>
-    <BrowserRouter>
-      <React.Fragment>
-<<<<<<< HEAD
+  <BrowserRouter>
+    <React.Fragment>
       <Switch>
         <Route exact path="/" component={App}/>
-        <Route path="/detail/:id/" exact component={Detail}  />
         <Route exact path="/home" component={App}/>
         <Route exact path="/about" component={App}/>
         <Route exact path="/:page" component={App}/>
         <Route exact path="/home/:page" component={App}/>
       </Switch>
+    </React.Fragment>
+</BrowserRouter>, document.getElementById('root'));
 =======
-        {/* <Route exact path="/" component={RenderApp} />
-        <Route exact path="/home" component={RenderApp} /> */}
+import {BrowserRouter , Route, withRouter, Link} from 'react-router-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import Header from './component/Layout/header';
+import Footer from './component/Layout/header';
+import List from './pages/Detail/List';
+import Index from './pages/Detail/index';
+
+ReactDOM.render(
+  // <Provider>
+    <BrowserRouter>
+      <React.Fragment>
         <Route exact path="/detail/:id" component={Index} />
->>>>>>> origin/thanhhang
       </React.Fragment>
     </BrowserRouter>
   // </Provider>
   , document.getElementById('root')
 );
+>>>>>>> origin/thanhhang
 registerServiceWorker();
-
