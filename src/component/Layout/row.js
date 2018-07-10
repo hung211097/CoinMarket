@@ -15,8 +15,6 @@ class Rows extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(prevState.page);
-    console.log(nextProps.page);
     if(nextProps.page != prevState.page)
     {
       return{
@@ -30,43 +28,39 @@ class Rows extends React.Component {
     return null;
   }
 
-  shouldComponentUpdate(nextProps, nextState)
-  {
-    console.log(nextProps);
-    console.log(nextState);
-    if(this.state.flag)
-      return true;
-
-    return false;
-  }
 
   componentDidUpdate() {
-    this.setState({
-      step: (this.state.page - 1) * 10,
-      flag: false
-    });
-
-    Ticker(this.state.page).then((data) => {
+    if(this.state.flag)
+    {
       this.setState({
-        list: data,
+        step: (this.state.page - 1) * 10,
+        flag: false
+      }, function(){
+        Ticker(this.state.page).then((data) => {
+          this.setState({
+            list: data,
+          });
+        }).then(()=>{
+          this.props.onTotalMarket(this.state.list.total);
+        });
       });
-    });
+    }
   }
-  
-  componentWillMount()
+
+  componentDidMount()
   {
     this.setState({
       step: (this.state.page - 1) * 10,
       flag: false
-    });
-
-    Ticker(this.state.page).then((data) => {
-      this.setState({
-        list: data,
+    }, () => {
+      Ticker(this.state.page).then((data) => {
+        this.setState({
+          list: data,
+        });
+      }).then(()=>{
+        this.props.onTotalMarket(this.state.list.total);
       });
-    });
-
-    console.log('Hello');
+    });    
   }
 
   render(){

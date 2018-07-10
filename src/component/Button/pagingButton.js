@@ -3,8 +3,12 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 import Row from '../../component/Layout/row';
 
 class Paging extends React.Component{
-  handleClick(){
+  handleClickNext(){
     this.props.onNextPage();
+  }
+
+  handleClickPrevious(){
+    this.props.onPreviousPage();
   }
 
   render(){
@@ -12,7 +16,11 @@ class Paging extends React.Component{
       <BrowserRouter>
         <React.Fragment>
           <ul className="pagination top-paginator">      {/*Paging Button Component--------------------------------------------*/}
-            <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClick.bind(this)}>Next 10→</Link></li>
+            {+this.props.page > 1 ?
+              <li><Link to={"/" + (+this.props.page - 1)} onClick={this.handleClickPrevious.bind(this)}>← Previous 10</Link></li>
+              : null
+            }
+            <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
             <li><a href="">View All</a></li>
           </ul>
         </React.Fragment>
