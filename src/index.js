@@ -15,6 +15,7 @@ ReactDOM.render(
       <React.Fragment>
       <Switch>
         <Route exact path="/" component={App}/>
+        <Route path="/detail/:id/" exact component={Detail}  />
         <Route exact path="/home" component={App}/>
         <Route exact path="/about" component={App}/>
         <Route exact path="/:page" component={App}/>
@@ -26,3 +27,4 @@ ReactDOM.render(
   , document.getElementById('root')
 );
 registerServiceWorker();
+

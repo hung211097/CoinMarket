@@ -5,15 +5,19 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 <<<<<<< HEAD
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-
-{/*function RenderApp(req) {
-  return (<App/>);
-}*/}
+=======
+import {BrowserRouter , Route, withRouter, Link} from 'react-router-dom';
+>>>>>>> origin/thanhhang
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import Detail from './pages/Detail/index'
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.Fragment>
+  // <Provider>
+    <BrowserRouter>
+      <React.Fragment>
+<<<<<<< HEAD
       <Switch>
         <Route exact path="/" component={App}/>
         <Route exact path="/home" component={App}/>
@@ -21,30 +25,15 @@ ReactDOM.render(
         <Route exact path="/:page" component={App}/>
         <Route exact path="/home/:page" component={App}/>
       </Switch>
-    </React.Fragment>
-</BrowserRouter>, document.getElementById('root'));
 =======
-import {BrowserRouter, Route, withRouter} from 'react-router-dom';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import Detail from './pages/Detail/index'
-
-function RenderApp(){
-  return(
-    <Detail />
-  );
-}
-ReactDOM.render(
-  // <Provider>
-    <BrowserRouter>
-      <React.Fragment>
         {/* <Route exact path="/" component={RenderApp} />
         <Route exact path="/home" component={RenderApp} /> */}
-        <Route path="/detail/:id/" exact component={Detail} />
+        <Route path="/detail/:id/" exact component={Detail}  />
+>>>>>>> origin/thanhhang
       </React.Fragment>
     </BrowserRouter>
   // </Provider>
   , document.getElementById('root')
 );
->>>>>>> 7285be11517a7b7b611a8e6c8f2adeae94466575
 registerServiceWorker();
+
