@@ -3,19 +3,68 @@ import _ from 'lodash';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import List from './List';
-import TickerWithConvert from '../../services/tickerWithConvert'
+import TickerWithConvert from '../../services/tickerWithConvert';
+import Header from '../../component/Layout/header';
+import Footer from '../../component/Layout/footer';
 class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
         coin: [],
+        i : this.props.match.params.id,
+        flag: false
         };
   }
 
-  
-  componentDidMount() {
-    TickerWithConvert(this.props.match.params.id).then(response => this.setState({coin: response.data}));
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(prevState);
+    console.log(nextProps);
+    if(nextProps.match.params.id != prevState.i)
+    {
+      return{
+        coin: [],
+        i: nextProps.match.params.id, 
+        flag: true
+      }
+    }
+
+    return null;
   }
+
+
+
+  componentDidUpdate() {
+    if (this.state.flag){
+      this.setState(
+      {
+        flag: false
+      }, function(){
+      TickerWithConvert(this.state.i).then(data => this.setState({coin: data}));
+    });
+  }
+  }
+  
+  componentDidMount()
+  {
+    this.setState({
+      flag: false
+    }, ()=>{
+      TickerWithConvert(this.state.i).then(data => this.setState({coin: data}));
+    });
+  }
+
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.id !== prevProps.id) {
+  //     TickerWithConvert(this.props.id).then(response => this.setState({coin: response.data}));
+  //   }
+  // }
+   
+
+  
+  // componentDidMount() {
+  //   TickerWithConvert(this.props.match.params.id).then(response => this.setState({coin: response.data}));
+  // }
 
   // componentWillMount(){
   //   var i =this.props.match.params.id;
@@ -38,7 +87,7 @@ class Content extends Component {
 
       {/* --------------------Header------------------- */}
 
-      {/* <Header/> */}
+      <Header/>
 
       {/* --------------------End Header------------------- */}
 
@@ -147,7 +196,7 @@ class Content extends Component {
 
         {/* -----------------------Footer-------------------------- */}
 
-        {/* <Footer/> */}
+        <Footer/>
         {/* ----------------------End Footer-------------------------- */}
       </div>
     )

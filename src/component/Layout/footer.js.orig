@@ -1,10 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import Dollar from '../../format/dollar';
-=======
-import ReactDOM from 'react-dom';
-import Paging from '../../component/Button/pagingButton';
->>>>>>> 7285be11517a7b7b611a8e6c8f2adeae94466575
 
 class footer extends React.Component {
   constructor(props)
@@ -39,7 +34,11 @@ class footer extends React.Component {
     return (
       <div className="footer">
         <div className="row text-center h3 margin-bottom--lv2">
+<<<<<<< HEAD
           <strong>Total Market Cap: <span id="total-marketcap" className="market-cap">{Dollar(this.state.total_marketcap)}</span></strong>
+=======
+          <strong>Total Market Cap: <span id="total-marketcap" className="market-cap">$267,653,949,612</span></strong>
+>>>>>>> origin/thanhhang
         </div>
       </div>
     );
