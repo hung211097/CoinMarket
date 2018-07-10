@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+<<<<<<< HEAD
+class Paging extends React.Component{
   handleClickNext(){
+    this.props.onNextPage();
+  }
 
   handleClickPrevious(){
     this.props.onPreviousPage();
   }
 
-  return(
-    <ul className="pagination top-paginator">      {/*Paging Button Component--------------------------------------------*/}
   render(){
     return(
       <BrowserRouter>
@@ -18,9 +21,21 @@ import ReactDOM from 'react-dom';
               : null
             }
             <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
+            <li><a href="">View All</a></li>
+          </ul>
+        </React.Fragment>
+      </BrowserRouter>
+    );
+  }
+=======
+const Paging = () =>{
+  return(
+    <ul className="pagination top-paginator">      {/*Paging Button Component--------------------------------------------*/}
+      <li><a href="">Next 10→</a></li>
       <li><a href="">View All</a></li>
     </ul>
   );
+>>>>>>> 7285be11517a7b7b611a8e6c8f2adeae94466575
 }
 
 export default Paging;

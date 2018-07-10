@@ -4,15 +4,15 @@ import App from './pages/Home';
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-
-{/*function RenderApp(req) {
-  return (<App/>);
-}*/}
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import Detail from './pages/Detail/index'
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.Fragment>
+  // <Provider>
+    <BrowserRouter>
+      <React.Fragment>
       <Switch>
         <Route exact path="/" component={App}/>
         <Route exact path="/home" component={App}/>
@@ -20,6 +20,9 @@ ReactDOM.render(
         <Route exact path="/:page" component={App}/>
         <Route exact path="/home/:page" component={App}/>
       </Switch>
-    </React.Fragment>
-</BrowserRouter>, document.getElementById('root'));
+      </React.Fragment>
+    </BrowserRouter>
+  // </Provider>
+  , document.getElementById('root')
+);
 registerServiceWorker();

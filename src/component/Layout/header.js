@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {number} from '../../constant/config';
 
 class header extends React.Component {
