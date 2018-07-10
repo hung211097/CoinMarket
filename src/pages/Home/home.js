@@ -5,6 +5,8 @@ import Footer from '../../component/Layout/footer';
 import Currency from '../../component/Button/currencyButton';
 import Paging from '../../component/Button/pagingButton';
 import Row from '../../component/Layout/row';
+import CheckExistPage from '../../services/checkExistPage';
+
 {/*import Tickers from '../../services/ticker';*/}
 
 class Content extends Component {
@@ -13,19 +15,29 @@ class Content extends Component {
     super(props);
     this.state = {
       page: this.props.page,
+      last: this.props.lastPage,
       total: 0
     }
   }
 
-  NextPage(){
-    this.setState((prevState) => ({
+  NextPage()
+  {
+    this.setState({
       page: +this.state.page + 1
-    }))
+    }, () => {
+        CheckExistPage(+this.state.page + 1).then((flag) => {
+          this.setState({
+            last: !flag
+          });
+        });
+      }
+    );
   }
 
   PreviousPage(){
     this.setState((prevState) => ({
-      page: +this.state.page - 1
+      page: +this.state.page - 1,
+      last: false
     }))
   }
 
@@ -47,7 +59,7 @@ class Content extends Component {
               </div>
 
               <div className="col-xs-9 col-md-5 col-md-push-5 text-right">
-                <Paging page={this.state.page} onPreviousPage={this.PreviousPage.bind(this)} onNextPage={this.NextPage.bind(this)}/>
+                <Paging page={this.state.page} lastPage={this.state.last} onPreviousPage={this.PreviousPage.bind(this)} onNextPage={this.NextPage.bind(this)}/>
               </div>
 
               <div className="col-md-5 col-md-pull-7">

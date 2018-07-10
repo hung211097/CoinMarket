@@ -3,7 +3,7 @@ import Dollar from '../format/dollar';
 import Circulating from '../format/circulating';
 
 const ticker = (page) => {
-  let num = (page - 1) * 10 + 1;
+  let num = (page - 1) * number.NUMBER_ITEMS + 1;
   let total_marketcap = 0;
   return fetch('https://api.coinmarketcap.com/v2/ticker/?start='+ num +'&limit=' + number.NUMBER_ITEMS)
   .then(function(response) {
