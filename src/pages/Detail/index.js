@@ -79,7 +79,7 @@ class Content extends Component {
               <div className="col-md-9 ">
                 <div className="details-panel-item--price">
                   <span id="quote_price">
-                    <span className="currency-value">${this.state.coin.quotes.USD.price}</span>
+                    <span className="currency-value">{this.state.coin.quotes.USD.price}</span>
                     <span className="currency-code"> USD </span>
                   </span>
                   <span className="percentage">
@@ -100,10 +100,10 @@ class Content extends Component {
                       <thead className="menu">
                         <tr>
                           <th>
-                            <h5>Market Cap</h5>
+                            <h5>Market Cap  </h5>
                           </th>
                           <th>
-                            <h5>Volume (24h)</h5>
+                            <h5>Volume (24h)  </h5>
                           </th>
                           <th>
                             <h5>Circulating Supply</h5>
@@ -119,7 +119,7 @@ class Content extends Component {
                       <tbody className="value">
                         <tr>
                           <td>
-                            <span>${this.state.coin.quotes.USD.market_cap }</span>
+                            <span>{this.state.coin.quotes.USD.market_cap }</span>
                             <span> USD</span>
                             <br />
                             <span className="price-cryto">
@@ -129,7 +129,7 @@ class Content extends Component {
                             </span>
                           </td>
                           <td>
-                            <span>${this.state.coin.quotes.USD.volume_24h}</span>
+                            <span>{this.state.coin.quotes.USD.volume_24h}</span>
                             <span> USD</span>
                             <br />
                             <span className="price-cryto">
@@ -140,17 +140,14 @@ class Content extends Component {
                           </td>
                           <td>
                             <span>{this.state.coin.circulating_supply}</span>
-                            <span> {this.state.coin.symbol}</span>
                             <br />
                           </td>
                           <td>
                             <span>{this.state.coin.max_supply}</span>
-                            <span> {this.state.coin.symbol}</span>
                             <br />
                           </td>
                           <td>
                           <span>{this.state.coin.total_supply}</span>
-                          <span> {this.state.coin.symbol}</span>
                           <br />
                           </td>
                         </tr>
