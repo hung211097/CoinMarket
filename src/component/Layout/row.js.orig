@@ -1,7 +1,9 @@
 import React from 'react';
 import Ticker from '../../services/ticker';
+<<<<<<< HEAD
+=======
 import {Link} from 'react-router-dom';
-import ListAll from '../../services/list';
+>>>>>>> origin/thanhhang
 
 class Rows extends React.Component {
   constructor(props)
@@ -12,20 +14,22 @@ class Rows extends React.Component {
       list:[],
       page: this.props.page,
       step: 0,
-      flag: true,
-      viewAll: this.props.viewAll
+      flag: true
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+<<<<<<< HEAD
     if(+nextProps.page !== +prevState.page)
+=======
+    if(nextProps.page != prevState.page)
+>>>>>>> origin/thanhhang
     {
       return{
         list: [],
         page: nextProps.page,
         step: null,
-        flag: false,
-        viewAll: nextProps.viewAll
+        flag: true
       }
     }
 
@@ -37,33 +41,26 @@ class Rows extends React.Component {
     if(this.state.flag)
     {
       this.setState({
+        step: (this.state.page - 1) * 10,
         flag: false
       }, function(){
-
-        if(!this.state.viewAll)
-          Ticker(this.state.page).then((data) => {
-            this.setState({
-              list: data,
-            });
-          }).then(()=>{
-            this.props.onTotalMarket(this.state.list.total);
+        Ticker(this.state.page).then((data) => {
+          this.setState({
+            list: data,
           });
-        else
-          ListAll().then((data) => {
-            this.setState({
-              list: data,
-            });
-          }).then(()=>{
-            this.props.onTotalMarket(this.state.list.total);
-          });
-
+        }).then(()=>{
+          this.props.onTotalMarket(this.state.list.total);
+        });
       });
     }
   }
 
   componentDidMount()
   {
-    if(!this.state.viewAll)
+    this.setState({
+      step: (this.state.page - 1) * 10,
+      flag: false
+    }, () => {
       Ticker(this.state.page).then((data) => {
         this.setState({
           list: data,
@@ -71,14 +68,7 @@ class Rows extends React.Component {
       }).then(()=>{
         this.props.onTotalMarket(this.state.list.total);
       });
-    else
-      ListAll().then((data) => {
-        this.setState({
-          list: data,
-        });
-      }).then(()=>{
-        this.props.onTotalMarket(this.state.list.total);
-      });
+    });
   }
 
   render(){
@@ -86,20 +76,32 @@ class Rows extends React.Component {
       <tbody>
         {this.state && this.state.list && this.state.list.map((view, i) => (
           <tr id={"id-" + view.name} role="row" key={view.id}>
-            <td className="text-center sorting_1">{view.rank}</td>
+            <td className="text-center sorting_1">{i + 1 + this.state.step}</td>
             <td className="no-wrap currency-name" data-sort={view.name}>
               <img className="logo-sprite" src={"https://s2.coinmarketcap.com/static/img/coins/16x16/" + view.id + ".png"} alt={view.name} width="16px" height="16px"/>
-              <Link to={`/detail/${view.id}`} className="currency-name-container link-secondary">{view.name}</Link>
+<<<<<<< HEAD
+              <a className="currency-name-container link-secondary" href="javascript:;">{view.name}</a>
+=======
+              <Link to={`/detail/${view.id}`} className="currency-name-container link-secondary" href="javascript:;">{view.name}</Link>
+>>>>>>> origin/thanhhang
             </td>
             <td className="no-wrap market-cap text-right">
               {view.quotes.USD.market_cap}
             </td>
             <td className="no-wrap price text-right">
+<<<<<<< HEAD
+              {view.quotes.USD.price}
+            </td>
+
+            <td className="no-wrap volume text-right">
+              {view.quotes.USD.volume_24h}
+=======
             <Link to={`/detail/${view.id}`}>{view.quotes.USD.price}</Link>
             </td>
 
             <td className="no-wrap volume text-right">
             <Link to={`/detail/${view.id}`}>{view.quotes.USD.volume_24h}</Link>
+>>>>>>> origin/thanhhang
             </td>
 
             <td className="no-wrap circulating-supply text-right">
