@@ -9,7 +9,7 @@ const ticker = (page) => {
   .then(function(response) {
     return response.json();
   }).then(function(myJson) {
-    if(myJson.data)
+    if(myJson)
     {
       myJson = Object.values(myJson.data);
       myJson = myJson.sort((a, b) => {
@@ -26,7 +26,12 @@ const ticker = (page) => {
       myJson.total = total_marketcap;
       return myJson;
     }
+<<<<<<< HEAD
     return null;
+=======
+    else
+      return null;
+>>>>>>> origin/thanhhang
   })
 }
 
