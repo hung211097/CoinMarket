@@ -1,79 +1,64 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './List.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Table} from 'reactstrap';
-import {BrowserRouter , Route, withRouter, Link} from 'react-router-dom';
 import Ticker from '../../services/ticker'
-import Detail from '../Detail/index'
+import Row from '../../component/Layout/row'
 
 
 class List extends Component {
   constructor(props){
     super(props);
     this.state = {
-        data: {},
+        data: [],
         }
     }
-     
-  
+
+
     componentDidMount()
     {
-        Ticker().then(response => this.setState({data: response.data}));
+        Ticker(1).then(data => this.setState({data: data}));
     }
-    renderRow(){
-    return Object.entries(this.state.data).map(([key, value], i) => {
-        return (
-            <BrowserRouter>
-                <React.Fragment>
-                <tr key={key}>
-                    <th scope="row" className = "rank">{value.rank}</th>
-                    <td >
-                        <img  src={`https://s2.coinmarketcap.com/static/img/coins/16x16/${value.id}.png`} />
-                        <Link  className = "active nameCoin" key={key} to={`/detail/${value.id}`}>{value.name}</Link>
-                    </td>
-                    <td >
-                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.market_cap}</Link>
-                    </td>
-                    <td >
-                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.price}</Link>
-                    </td>
-                    <td >
-                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>${value.quotes.USD.volume_24h}</Link>
-                    </td>
-                    <td >
-                        <Link  className = "active" key={key} to={`/detail/${value.id}`}>{value.circulating_supply} {value.symbol}</Link>
-                    </td>
-                    <td className={value.quotes.USD.percent_change_24h < 0 ? "no-wrap percent-change text-right drop" : value.quotes.USD.percent_change_24h > 0 ? "no-wrap  percent-change text-right rise" : "no-wrap  percent-change text-right"}>
-            {value.quotes.USD.percent_change_24h} %</td>
-                </tr>
-                </React.Fragment>
-             </BrowserRouter>
-        )
-    })
-}
+
+    TotalUpdate(value){
+
+    }
+
 
     render(){
       return (
-        <div className="container-fluid">
-            <Table className = "title">
-                <thead>
-                    <tr>
-                        <th className= "rank">#</th>
-                        <th>Name</th>
-                        <th>Market Cap</th>
-                        <th>Price</th>
-                        <th>Volume (24h)</th>
-                        <th>Circulating Supply</th>
-                        <th>Change (24h)</th>
+        <div className="row bottom-margin-1x">
+          <div className="col-xs-12">
+            <div className="row">
+              <div className="col-md-5 col-md-pull-7">
+                <ul className="nav nav-tabs no-border-bottom">
+                  <li className="active"><a href="/">Cryptocurrencies</a></li>
+                  <li><a href="javascript:;">Watchlist</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="table-fixed-column-mobile compact-name-column">
+              <div className="dataTables_wrapper no-footer">
+                <table className="table floating-header  dataTable no-footer">
+                  <thead>
+                    <tr role="row">
+                      <th className="col-rank text-center sortable sorting_asc" tabIndex="0" style={{width: 29}} colSpan="1" rowSpan="1">#</th>
+                      <th id="th-name" className="sortable sorting" tabIndex="0" style={{width: 150}} colSpan="1" rowSpan="1">Name</th>
+                      <th id="th-marketcap" className="sortable text-right sorting" tabIndex="0" style={{width: 130}} colSpan="1" rowSpan="1">Market Cap</th>
+                      <th id="th-price" className="ssortable text-right sorting" tabIndex="0" style={{width: 69}} colSpan="1" rowSpan="1">Price</th>
+                      <th id="th-volume" className="sortable text-right sorting" tabIndex="0" style={{width: 105}} colSpan="1" rowSpan="1">Volume (24h)</th>
+                      <th id="th-totalsupply" className="sortable text-right sorting" tabIndex="0" style={{width: 156}} colSpan="1" rowSpan="1">Circulating Supply</th>
+                      <th id="th-change" className="sortable text-right sorting" tabIndex="0" style={{width: 109}} colSpan="1" rowSpan="1">Change (24h)</th>
                     </tr>
-                </thead>
-                <tbody>
-                    {this.state.data ? this.renderRow() : null}
-                </tbody>
-            </Table>
+                  </thead>
+
+                    <Row page={1} onTotalMarket={this.TotalUpdate.bind(this)}/>
+
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-    )
+      )
     }
 }
 export default List;

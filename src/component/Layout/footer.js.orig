@@ -11,7 +11,11 @@ class footer extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+<<<<<<< HEAD
+    if(+nextProps.totalMarket !== +prevState.total_marketcap)
+=======
     if(nextProps.totalMarket != prevState.total_marketcap)
+>>>>>>> origin/thanhhang
     {
       return{
         total_marketcap: nextProps.totalMarket,
@@ -34,11 +38,7 @@ class footer extends React.Component {
     return (
       <div className="footer">
         <div className="row text-center h3 margin-bottom--lv2">
-<<<<<<< HEAD
           <strong>Total Market Cap: <span id="total-marketcap" className="market-cap">{Dollar(this.state.total_marketcap)}</span></strong>
-=======
-          <strong>Total Market Cap: <span id="total-marketcap" className="market-cap">$267,653,949,612</span></strong>
->>>>>>> origin/thanhhang
         </div>
       </div>
     );

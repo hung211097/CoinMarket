@@ -1,6 +1,9 @@
 import React from 'react';
 import Ticker from '../../services/ticker';
+<<<<<<< HEAD
+=======
 import {Link} from 'react-router-dom';
+>>>>>>> origin/thanhhang
 
 class Rows extends React.Component {
   constructor(props)
@@ -16,7 +19,11 @@ class Rows extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+<<<<<<< HEAD
     if(+nextProps.page !== +prevState.page)
+=======
+    if(nextProps.page != prevState.page)
+>>>>>>> origin/thanhhang
     {
       return{
         list: [],
@@ -72,17 +79,29 @@ class Rows extends React.Component {
             <td className="text-center sorting_1">{i + 1 + this.state.step}</td>
             <td className="no-wrap currency-name" data-sort={view.name}>
               <img className="logo-sprite" src={"https://s2.coinmarketcap.com/static/img/coins/16x16/" + view.id + ".png"} alt={view.name} width="16px" height="16px"/>
-              <Link to={`/detail/${view.id}`} className="currency-name-container link-secondary">{view.name}</Link>
+<<<<<<< HEAD
+              <a className="currency-name-container link-secondary" href="javascript:;">{view.name}</a>
+=======
+              <Link to={`/detail/${view.id}`} className="currency-name-container link-secondary" href="javascript:;">{view.name}</Link>
+>>>>>>> origin/thanhhang
             </td>
             <td className="no-wrap market-cap text-right">
               {view.quotes.USD.market_cap}
             </td>
             <td className="no-wrap price text-right">
+<<<<<<< HEAD
+              {view.quotes.USD.price}
+            </td>
+
+            <td className="no-wrap volume text-right">
+              {view.quotes.USD.volume_24h}
+=======
             <Link to={`/detail/${view.id}`}>{view.quotes.USD.price}</Link>
             </td>
 
             <td className="no-wrap volume text-right">
             <Link to={`/detail/${view.id}`}>{view.quotes.USD.volume_24h}</Link>
+>>>>>>> origin/thanhhang
             </td>
 
             <td className="no-wrap circulating-supply text-right">
