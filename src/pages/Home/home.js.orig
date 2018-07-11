@@ -7,6 +7,11 @@ import Paging from '../../component/Button/pagingButton';
 import Row from '../../component/Layout/row';
 import CheckExistPage from '../../services/checkExistPage';
 
+<<<<<<< HEAD
+=======
+{/*import Tickers from '../../services/ticker';*/}
+
+>>>>>>> origin/thanhhang
 class Content extends Component {
   constructor(props)
   {
@@ -14,8 +19,7 @@ class Content extends Component {
     this.state = {
       page: this.props.page,
       last: this.props.lastPage,
-      total: 0,
-      viewAll: false
+      total: 0
     }
   }
 
@@ -46,16 +50,10 @@ class Content extends Component {
     }))
   }
 
-  ViewAll(){
-    this.setState({
-      viewAll: true
-    });
-  }
-
   render(){
     return(
       <div>
-        <Header page={this.state.page}/>
+        <Header />
         <div className="row bottom-margin-1x">
           <div className="col-xs-12">
             <div className="row">
@@ -64,7 +62,7 @@ class Content extends Component {
               </div>
 
               <div className="col-xs-9 col-md-5 col-md-push-5 text-right">
-                <Paging page={this.state.page} lastPage={this.state.last} onPreviousPage={this.PreviousPage.bind(this)} onNextPage={this.NextPage.bind(this)} onViewAll={this.ViewAll.bind(this)}/>
+                <Paging page={this.state.page} lastPage={this.state.last} onPreviousPage={this.PreviousPage.bind(this)} onNextPage={this.NextPage.bind(this)}/>
               </div>
 
               <div className="col-md-5 col-md-pull-7">
@@ -91,7 +89,7 @@ class Content extends Component {
                     </tr>
                   </thead>
 
-                    <Row page={this.state.page} onTotalMarket={this.TotalUpdate.bind(this)} viewAll={this.state.viewAll}/>
+                    <Row page={this.state.page} onTotalMarket={this.TotalUpdate.bind(this)}/>
 
                 </table>
               </div>

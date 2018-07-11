@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Home from './home';
 import CheckExistPage from '../../services/checkExistPage';
+<<<<<<< HEAD
 import ErrorPage from '../Error/error';
+=======
+>>>>>>> origin/thanhhang
 
 var reg = /^\d+$/;
 
@@ -85,9 +88,13 @@ class CoinMarket extends Component {
 
     return(
       <div className="container">
+<<<<<<< HEAD
         {this.state.error ?
           <ErrorPage />
           :
+=======
+        {
+>>>>>>> origin/thanhhang
           <Home page={this.state.p} lastPage={this.state.last}/>
         }
       </div>
@@ -96,14 +103,16 @@ class CoinMarket extends Component {
 }
 
 const App = (props) => {
-  console.log(props.match);
-
   let p = props.match.params.page;
   if(!p)
     p = 1;
+<<<<<<< HEAD
   else
     if(!reg.test(p))
       return (<ErrorPage />);
+=======
+ 
+>>>>>>> origin/thanhhang
 
   return(
     <CoinMarket page={+p}/>
