@@ -1,5 +1,10 @@
 import React from 'react';
+<<<<<<< HEAD
 import {BrowserRouter, Link} from 'react-router-dom';
+=======
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import Row from '../../component/Layout/row';
+>>>>>>> origin/thanhhang
 
 class Paging extends React.Component{
   handleClickNext(){
@@ -8,11 +13,6 @@ class Paging extends React.Component{
 
   handleClickPrevious(){
     this.props.onPreviousPage();
-  }
-
-  handleViewAll()
-  {
-    this.props.onViewAll();
   }
 
   render(){
@@ -26,9 +26,13 @@ class Paging extends React.Component{
             }
             {!this.props.lastPage ?
               <li><Link to={"/" + (+this.props.page + 1)} onClick={this.handleClickNext.bind(this)}>Next 10 →</Link></li>
+<<<<<<< HEAD
                : null
+=======
+               : null                            
+>>>>>>> origin/thanhhang
             }
-            <li><Link to="/all/views/all" onClick={this.handleViewAll.bind(this)}>View All</Link></li>
+            <li><a href="">View All</a></li>
           </ul>
         </React.Fragment>
       </BrowserRouter>
