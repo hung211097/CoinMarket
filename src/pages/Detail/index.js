@@ -22,7 +22,7 @@ class Content extends Component {
 
     if(nextProps.id != prevState.i)
     {
-      return{
+      return {
         i: nextProps.id,
         flag: true,
         loading: true
